@@ -82,8 +82,26 @@
             <artifactId>commons-vfs2</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.wso2.org.apache.commons</groupId>
+            <artifactId>commons-vfs2-sandbox</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.jcraft</groupId>
             <artifactId>jsch</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-webdav</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
@@ -160,13 +178,19 @@
                             org.wso2.carbon.connector.framework.server.polling.*,
                             org.wso2.transport.remotefilesystem.*,
                             org.wso2.carbon.messaging.*,
-                            org.apache.commons.vfs2.*,
+                            org.apache.commons.vfs2.*,version="${commons-vfs2.wso2.version}",
                             org.apache.commons.compress.*,
                             org.wso2.transport.file.*,
                             org.apache.commons.net.*,
                             org.quartz.*,
                             io.siddhi.extension.util.*,
-                            com.jcraft.jsch.*
+                            com.jcraft.jsch.*,
+<!--                            com.hierynomus.*,-->
+<!--                            jcifs.*,-->
+<!--                            net.engio.mbassy.*,-->
+                            org.apache.jackrabbit.*,
+                            org.apache.commons.codec.*,
+                            org.apache.commons.httpclient.*
                         </Private-Package>
                         <Export-Package>
                             io.siddhi.extension.io.file.*,
@@ -179,7 +203,13 @@
                             !org.wso2.transport.file.*,
                             !org.apache.commons.net.*,
                             !org.quartz.*,
-                            !com.jcraft.jsch.*
+                            !com.jcraft.jsch.*,
+<!--                            !com.hierynomus.*,-->
+<!--                            !jcifs.*,-->
+<!--                            !net.engio.mbassy.*,-->
+                            !org.apache.jackrabbit.*,
+                            !org.apache.commons.codec.*,
+                            !org.apache.commons.httpclient.*
                         </Export-Package>
                         <Import-Package>
                             !org.wso2.carbon.messaging.*,
@@ -188,6 +218,12 @@
                             !org.wso2.transport.file.*,
                             !org.apache.commons.net.*,
                             !com.jcraft.jsch.*,
+<!--                            !com.hierynomus.*,-->
+<!--                            !jcifs.*,-->
+<!--                            !net.engio.mbassy.*,-->
+                            !org.apache.jackrabbit.*,
+<!--                            !org.apache.commons.codec.*,-->
+                            org.apache.commons.httpclient.*,
                             io.siddhi.core.*;version="${siddhi.version.range}",
                             io.siddhi.annotation.*;version="${siddhi.version.range}",
                             io.siddhi.query.compiler.*;version="${siddhi.version.range}",
@@ -196,6 +232,7 @@
                         <Include-Resource>
                             META-INF=target/classes/META-INF
                         </Include-Resource>
+                        <DynamicImport-Package>*</DynamicImport-Package>
                     </instructions>
                 </configuration>
             </plugin>
